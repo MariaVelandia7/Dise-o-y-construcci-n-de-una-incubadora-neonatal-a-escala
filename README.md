@@ -39,13 +39,18 @@ Se diseñó y construyó un prototipo a escala de una incubadora neonatal con di
 ## Fundamentos fisiologicos
 El neonato, especialmente el prematuro, presenta una elevada superficie corporal en relación con su peso, piel delgada con barrera inmadura, poca grasa aislante, capacidad limitada para tiritar, control nervioso inmaduro y reservas energéticas reducidas. Estas características aumentan la pérdida de calor y dificultan mantener una temperatura estable [4, 14, 15].
 
-### Balance térmico. La temperatura neonatal depende del equilibrio entre la producción y la pérdida de calor. Esta última ocurre por cuatro mecanismos: conducción (contacto con superficies frías), convección (aire en movimiento), radiación (superficies frías cercanas) y evaporación (agua que se pierde por la piel y las vías respiratorias). La incubadora reduce estas pérdidas mediante aislamiento, circulación controlada de aire caliente y regulación de la humedad.
+### Balance térmico.
+La temperatura neonatal depende del equilibrio entre la producción y la pérdida de calor. Esta última ocurre por cuatro mecanismos: conducción (contacto con superficies frías), convección (aire en movimiento), radiación (superficies frías cercanas) y evaporación (agua que se pierde por la piel y las vías respiratorias). La incubadora reduce estas pérdidas mediante aislamiento, circulación controlada de aire caliente y regulación de la humedad.
 
-### Grasa parda. Es una fuente importante de calor en el neonato y se localiza principalmente en la nuca, la región interescapular, las axilas y alrededor de los riñones. Ante el frío, la noradrenalina activa este tejido, que genera calor mediante el consumo de oxígeno y glucosa [15]. Los prematuros poseen reservas menores, lo que limita su capacidad de termorregulación.
+### Grasa parda.
+Es una fuente importante de calor en el neonato y se localiza principalmente en la nuca, la región interescapular, las axilas y alrededor de los riñones. Ante el frío, la noradrenalina activa este tejido, que genera calor mediante el consumo de oxígeno y glucosa [15]. Los prematuros poseen reservas menores, lo que limita su capacidad de termorregulación.
 
-### Ambiente térmico neutro. Es el rango de temperatura ambiental en el que el neonato mantiene su temperatura corporal con el menor consumo de oxígeno y energía. Depende del peso, la edad gestacional y la edad posnatal; generalmente, cuanto menor es el peso y la madurez, mayores son los requerimientos térmicos. La incubadora busca mantener estas condiciones.
+### Ambiente térmico neutro.
+Es el rango de temperatura ambiental en el que el neonato mantiene su temperatura corporal con el menor consumo de oxígeno y energía. Depende del peso, la edad gestacional y la edad posnatal; generalmente, cuanto menor es el peso y la madurez, mayores son los requerimientos térmicos. La incubadora busca mantener estas condiciones.
 
-### Estrés por frío. Cuando la pérdida de calor supera su producción, el neonato aumenta el consumo de oxígeno y glucosa. Esto puede provocar hipoglucemia y acidosis metabólica. La acidosis y la hipotermia pueden aumentar la vasoconstricción pulmonar y agravar la hipoxemia; además, el frío puede reducir la producción de surfactante, empeorando la función respiratoria [15].
+### Estrés por frío. 
+Cuando la pérdida de calor supera su producción, el neonato aumenta el consumo de oxígeno y glucosa. Esto puede provocar hipoglucemia y acidosis metabólica. La acidosis y la hipotermia pueden aumentar la vasoconstricción pulmonar y agravar la hipoxemia; además, el frío puede reducir la producción de surfactante, empeorando la función respiratoria [15].
+
 ## Partes de la incubadora
 Cubierta transparente (canopy): aísla al neonato, reduce las corrientes de aire y permite observarlo. Las cubiertas de una sola pared ofrecen menor aislamiento frente a la radiación térmica, y las aperturas prolongadas favorecen la pérdida de calor. En el proyecto se emplea acrílico con apertura y cierre.
 
