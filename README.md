@@ -36,6 +36,65 @@ Se diseñó y construyó un prototipo a escala de una incubadora neonatal con di
   Conclusiones: Síntesis del proyecto y reflexiones técnicas  
 
 # Parte A - Diseño y simulación
+## Fundamentos fisiologicos
+El neonato, especialmente el prematuro, presenta una elevada superficie corporal en relación con su peso, piel delgada con barrera inmadura, poca grasa aislante, capacidad limitada para tiritar, control nervioso inmaduro y reservas energéticas reducidas. Estas características aumentan la pérdida de calor y dificultan mantener una temperatura estable [4, 14, 15].
+
+### Balance térmico. La temperatura neonatal depende del equilibrio entre la producción y la pérdida de calor. Esta última ocurre por cuatro mecanismos: conducción (contacto con superficies frías), convección (aire en movimiento), radiación (superficies frías cercanas) y evaporación (agua que se pierde por la piel y las vías respiratorias). La incubadora reduce estas pérdidas mediante aislamiento, circulación controlada de aire caliente y regulación de la humedad.
+
+### Grasa parda. Es una fuente importante de calor en el neonato y se localiza principalmente en la nuca, la región interescapular, las axilas y alrededor de los riñones. Ante el frío, la noradrenalina activa este tejido, que genera calor mediante el consumo de oxígeno y glucosa [15]. Los prematuros poseen reservas menores, lo que limita su capacidad de termorregulación.
+
+### Ambiente térmico neutro. Es el rango de temperatura ambiental en el que el neonato mantiene su temperatura corporal con el menor consumo de oxígeno y energía. Depende del peso, la edad gestacional y la edad posnatal; generalmente, cuanto menor es el peso y la madurez, mayores son los requerimientos térmicos. La incubadora busca mantener estas condiciones.
+
+### Estrés por frío. Cuando la pérdida de calor supera su producción, el neonato aumenta el consumo de oxígeno y glucosa. Esto puede provocar hipoglucemia y acidosis metabólica. La acidosis y la hipotermia pueden aumentar la vasoconstricción pulmonar y agravar la hipoxemia; además, el frío puede reducir la producción de surfactante, empeorando la función respiratoria [15].
+## Partes de la incubadora
+Cubierta transparente (canopy): aísla al neonato, reduce las corrientes de aire y permite observarlo. Las cubiertas de una sola pared ofrecen menor aislamiento frente a la radiación térmica, y las aperturas prolongadas favorecen la pérdida de calor. En el proyecto se emplea acrílico con apertura y cierre.
+
+Puertas de acceso (ojos de buey): permiten manipular al neonato sin abrir toda la cubierta, reduciendo las pérdidas térmicas.
+
+Colchón o bandeja: soporta al neonato; una superficie fría aumenta la pérdida de calor por conducción. 
+
+Calefactor (resistencia): transforma energía eléctrica en calor por efecto Joule. Una falla puede causar hipotermia, mientras que un funcionamiento continuo sin regulación puede provocar sobrecalentamiento.
+
+Ventilador: distribuye el aire caliente por convección forzada. Su detención puede generar zonas con temperaturas desiguales y favorecer el sobrecalentamiento del calefactor.
+
+Filtro de aire: reduce partículas y microorganismos transportados por el aire. 
+Sensor de temperatura del aire: mide la variable controlada. Una lectura incorrecta puede provocar un calentamiento insuficiente o excesivo.
+
+Sonda de piel: mide la temperatura cutánea del neonato para regular el calentamiento en modo servo.
+
+Unidad de control: compara la temperatura medida con la consigna y regula el calefactor mediante estrategias como ON/OFF, PI o PID.
+
+Alarmas y corte de seguridad: alertan sobre temperaturas anormales y fallas. Un termostato independiente puede interrumpir el calentamiento si falla el control principal. 
+
+Humidificador: regula la humedad para reducir la pérdida de agua por la piel. Una humedad insuficiente favorece la deshidratación, mientras que una humedad elevada sin control puede aumentar el riesgo de contaminación.
+
+Entrada de oxígeno: permite administrar oxígeno suplementario de forma controlada.
+
+Báscula integrada: permite estimar el peso sin retirar al neonato.
+
+Panel y alimentación: permiten visualizar temperatura, peso y alarmas. Una alimentación con respaldo ayuda a mantener el funcionamiento ante interrupciones eléctricas.
+
+## Consecuencias de un ambiente no controlado o de fallas en la incubadora
+### Temperatura baja (hipotermia). 
+Se define generalmente como una temperatura corporal inferior a 36,5 °C en el neonato [7, 8]. Se asocia con hipoglucemia, acidosis metabólica, dificultad respiratoria, apnea, mayor riesgo de infección y alteraciones del crecimiento [14, 15]. En prematuros y neonatos de bajo peso también se relaciona con mayor mortalidad y complicaciones como síndrome de dificultad respiratoria, enterocolitis necrosante y hemorragia intraventricular [11]. Las fallas del calefactor o del ventilador y las aperturas prolongadas pueden favorecer su aparición.
+
+### Temperatura alta (hipertermia).
+Una temperatura superior a 37,5 °C suele considerarse elevada en el contexto neonatal [14], aunque su interpretación depende del sitio de medición y del contexto clínico. El exceso de calor favorece la deshidratación y puede alterar la frecuencia cardiaca y la respiración [9]. La asociación entre sobrecalentamiento y síndrome de muerte súbita del lactante se ha estudiado principalmente en lactantes mayores, por lo que no debe extrapolarse directamente a neonatos. En climas cálidos, el control térmico ambiental cobra especial importancia [5]. En el prototipo, una falla crítica sería que el calefactor permaneciera encendido sin regulación.
+
+### Humedad baja.
+La piel inmadura del prematuro pierde agua con facilidad, lo que puede provocar deshidratación, hipernatremia y pérdida de peso [10]. Además, la evaporación aumenta la pérdida de calor y puede contribuir a la hipotermia.
+
+### Humedad alta.
+Reduce la pérdida de agua, pero su uso prolongado puede favorecer la proliferación microbiana. Una revisión sistemática encontró una asociación entre niveles elevados de humedad y mayor riesgo de infección en prematuros (RR ≈ 1,26) [10]. Sus beneficios y riesgos dependen de la humedad, la duración y las condiciones clínicas; no existe un único nivel óptimo para todos los neonatos.
+
+### Peso bajo. Se clasifica como bajo peso al nacer (< 2500 g), muy bajo peso (< 1500 g) y extremadamente bajo peso (< 1000 g) [11]. Se asocia con mayor riesgo de dificultad respiratoria, displasia broncopulmonar, hemorragia intraventricular, enterocolitis necrosante, retinopatía del prematuro, sepsis, hipoglucemia y dificultades de termorregulación [11]. La medición del peso dentro de la incubadora permite seguir el crecimiento y apoyar la evaluación nutricional y del balance de líquidos sin exponer al neonato a pérdidas térmicas por manipulación. Sin embargo, los cambios de peso deben interpretarse junto con la evaluación clínica, ya que no indican por sí solos deshidratación o sobrecarga de líquidos. Una báscula imprecisa puede conducir a decisiones clínicas incorrectas.
+
+### Luz. La exposición excesiva o los cambios bruscos de iluminación pueden alterar el sueño y la estabilidad fisiológica del neonato. Los prematuros son especialmente sensibles a la luz, por lo que se recomienda una iluminación regulable y el uso de cubiertas cuando corresponda [13]. La fototerapia azul para tratar la ictericia es una intervención distinta que requiere protección ocular adecuada.
+
+### Ruido. Se recomiendan niveles ambientales bajos en las unidades neonatales, con referencias de menos de 45 dB(A) y límites específicos para picos transitorios [12, 13]. Dentro de las incubadoras pueden registrarse niveles aproximados de 50–60 dB(A), en parte por el ventilador [12]. El ruido excesivo puede alterar la frecuencia cardiaca, la saturación de oxígeno y el sueño.
+
+### Oxígeno y flujo de aire. La administración de oxígeno debe ajustarse y monitorizarse: una cantidad insuficiente puede causar hipoxemia, mientras que una exposición excesiva aumenta el riesgo de retinopatía del prematuro y displasia broncopulmonar. Las corrientes rápidas de aire junto al neonato incrementan la pérdida de calor; la detención del ventilador puede generar temperaturas desiguales y la ausencia de filtración adecuada puede aumentar el riesgo de contaminación.
+
 # Parte B - Prototipo y Software
 ### Descripción técnica del circuito de la incubadora neonatal a escala
 El prototipo desarrollado integra un sistema de monitoreo y control de temperatura, un mecanismo de ventilación, un sistema de medición de peso y una interfaz de visualización. Su funcionamiento se basa en la adquisición de señales mediante sensores, el procesamiento de la información con un microcontrolador Arduino Uno y la activación de actuadores mediante un módulo de relé de dos canales.
