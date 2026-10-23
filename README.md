@@ -261,6 +261,11 @@ Elevar los estándares de seguridad, precisión y estructura.
 #### Pregunta 3: ¿Qué semejanzas hay entre una incubadora neonatal y una servo-cuna?   
 Tanto la incubadora neonatal como la servo-cuna comparten el objetivo fundamental de proporcionar soporte térmico para prevenir la hipotermia y reducir el estrés metabólico del recién nacido. Ambos sistemas funcionan bajo un principio de servocontrol en lazo cerrado mediante una sonda adherida a la piel del paciente, ajustando automáticamente la entrega de calor. Asimismo, incorporan monitoreo continuo de variables como la temperatura y el peso, y ofrecen un diseño que facilita la supervisión constante por parte del personal médico diferenciándose principalmente en que la incubadora es un entorno cerrado con control de humedad microambiental, mientras que la servo-cuna es una estructura abierta basada en calor radiante para acceso e intervenciones rápidas.
 
+# Conclusiones
+
+Se diseñó y construyó un prototipo a escala de una incubadora neonatal que integra monitoreo de temperatura y humedad, un sistema de calentamiento, ventilación, indicadores LED y medición de peso. Las pruebas permitieron comprobar la respuesta básica del control térmico; sin embargo, la temperatura solo alcanzó 26 °C, sin llegar al rango objetivo de 36–37,5 °C. Además, la humedad se monitoreó sin regularse y la medición de peso presentó un error aproximado del 27,8 %, evidenciando limitaciones en el aislamiento térmico y la calibración del sensor.
+
+Aún así, el proyecto permitió comprender la importancia del monitoreo y control de las variables ambientales para la estabilidad térmica neonatal. Como mejoras futuras, se propone optimizar el aislamiento, implementar un control de temperatura más preciso, calibrar la celda de carga y añadir regulación de humedad y sistemas de seguridad. Estas mejoras permitirían evaluar mejor el desempeño del prototipo, que actualmente tiene fines académicos y no está diseñado para uso clínico.
 
 ### Referencias
 [1] C. G. K. Tran, A. Gibson, D. Wong, D. Tilahun, N. Selock, T. Good, … G. Rao, “Designing a low-cost multifunctional infant incubator,” J. Lab. Autom., vol. 19, no. 3, pp. 332–337, Jun. 2014. https://doi.org/10.1177/2211068214530391
