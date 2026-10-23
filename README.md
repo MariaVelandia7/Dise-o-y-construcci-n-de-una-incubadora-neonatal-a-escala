@@ -187,9 +187,38 @@ El funcionamiento general del sistema puede describirse mediante la siguiente se
 
 # Parte C - Análisis y resultados
 
+### Temperatura:
+Con una temperatura ambiente de 21 °C se encendió el bombillo y la temperatura medida fue subiendo de forma gradual, pero llegó como máximo a 26 °C, sin alcanzar el rango objetivo (36–37,5 °C). Para comprobar cómo respondía el sistema al llegar a esos valores, se acercó una fuente de calor puntual (un encendedor) al sensor y se simuló el aumento de temperatura. Con esto se observó que, al entrar la temperatura en el rango normal, se encendía el LED verde; al superar el límite superior (≈ 37 °C), se encendía el LED rojo y se activaba el ventilador; y al bajar la temperatura, el ventilador se apagaba y el LED volvía a cambiar según el valor medido.
+
+Por qué no se llegó a 36 °C. Esto no indica una falla de la lógica de control sino una limitación del montaje, y se explica por varios factores:
+Ubicación del sensor: no estaba en la zona donde se acumulaba el aire caliente (lejos del bombillo o expuesto al ambiente), por lo que medía menos que la temperatura real del interior.
+Pérdidas de calor: una cubierta sin buen sellado ni aislamiento pierde calor a medida que se genera; subir de 21 a 36 °C exige que la potencia de calentamiento supere esas pérdidas.
+Potencia y tipo de calefactor: un bombillo entrega parte de su energía como luz y radiación, y no necesariamente calienta el aire de forma homogénea.
+Poca circulación de aire: sin un ventilador que mezcle el aire, se forman zonas más calientes y más frías.
+
+La prueba con el encendedor demuestra que la lógica de decisión funciona: los umbrales se detectan, los LEDs cambian de estado y el ventilador se activa y se desactiva cuando corresponde. No demuestra el desempeño térmico de la incubadora, porque el estímulo fue local y breve: no se comprobó el tiempo que tarda la cabina en calentarse, la estabilidad de la temperatura en régimen ni la capacidad del calefactor para mantenerla dentro del rango.
+
+Cómo mejorar. Reubicar el sensor a la altura del colchón, protegido de la radiación directa del calefactor y de las paredes; sellar y aislar mejor la cubierta (doble pared); usar un calefactor resistivo de mayor potencia con un driver adecuado (relé de estado sólido o PWM).
+
+### Humedad
+El mismo sensor registró la humedad relativa: [COMPLETAR: valor inicial] % con el ambiente a 21 °C y [COMPLETAR: valor final] % cuando la temperatura subió a 26 °C. Es esperable que la humedad relativa disminuya al calentar el aire sin añadir vapor de agua, porque el aire más caliente puede contener más vapor y, con la misma cantidad de agua, queda "menos saturado".
+El prototipo mide la humedad, pero no la controla, porque no cuenta con un humidificador ni con un lazo de control para ella.
+
+<img width="1294" height="590" alt="image" src="https://github.com/user-attachments/assets/31253c7f-0c74-4ba0-82d1-41022ed11e85" />
+Figura 1. Monitoreo en tiempo real de la temperatura (arriba) y la humedad relativa (abajo) de la cabina durante el calentamiento con el bombillo, partiendo de la temperatura ambiente (≈ 21 °C). Las líneas punteadas indican los límites del rango objetivo (36,0 °C y 37,5 °C). El eje horizontal corresponde al tiempo.
+
+<img width="601" height="252" alt="image" src="https://github.com/user-attachments/assets/5be2c647-abf8-4aec-bbda-2342233a7a22" />
+Figura 2. Monitoreo en tiempo real de la temperatura (arriba) y la humedad relativa (abajo) durante la prueba de respuesta del control. La cabina ya estaba precalentada por el bombillo (≈ 29 °C) y se acercó un encendedor al sensor para elevar la temperatura por encima del límite superior (37,5 °C), con el fin de comprobar la activación de los indicadores y del ventilador. El eje horizontal corresponde al tiempo.
 
 
 
+### Peso
+Se usó como patrón una pesa de 1,8 kg y se comparó con la lectura del sensor, que mostró 2,3 kg.
+Error absoluto = lectura − patrón = 2,3 kg − 1,8 kg = +0,5 kg (+500 g).
+Error relativo = 0,5 / 1,8 × 100 ≈ 27,8 % (el sensor sobreestimó el peso).
+Cabe mencionar que se usó una superficie rectangular y plana como un borrador para poder distribuir el peso de forma más uniforme sobre la galga.  Aunque el peso de este soporte fue pequeño (aproximadamente 10-25g)  se debe tener en cuenta que está incluido dentro del error que se calculó. 
+
+Un error de esta magnitud no es tolerable en un entorno médico. Para dar una idea, un neonato de 1,8 kg es un caso de bajo peso, y un error de 500 g es casi un tercio de su peso real. En la práctica clínica, el peso se usa para seguir el crecimiento diario, que en prematuros se mide en decenas de gramos por día [verificar en guías neonatales], y para detectar pérdidas de peso por deshidratación, que son del orden de algunos porcentajes del peso corporal. Un error de 500 g ocultaría por completo estos cambios y podría llevar a errores en la alimentación, el balance de líquidos y la dosificación de medicamentos (que se calculan por kilogramo).
 
 
 # Preguntas 
