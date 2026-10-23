@@ -223,6 +223,25 @@ Cabe mencionar que se usó una superficie rectangular y plana como un borrador p
 
 Un error de esta magnitud no es tolerable en un entorno médico. Para dar una idea, un neonato de 1,8 kg es un caso de bajo peso, y un error de 500 g es casi un tercio de su peso real. En la práctica clínica, el peso se usa para seguir el crecimiento diario, que en prematuros se mide en decenas de gramos por día [verificar en guías neonatales], y para detectar pérdidas de peso por deshidratación, que son del orden de algunos porcentajes del peso corporal. Un error de 500 g ocultaría por completo estos cambios y podría llevar a errores en la alimentación, el balance de líquidos y la dosificación de medicamentos (que se calculan por kilogramo).
 
+Por qué ocurrió? Los sensores de fuerza y las celdas de carga son muy sensibles a cómo se aplica la carga y a cómo están montados. Entre las causas probables están:
+
+Una calibración con un solo punto o con un factor de escala incorrecto.
+Una tara mal hecha (lectura sin carga distinta de cero).
+Una carga mal distribuida o descentrada sobre el sensor, o un apoyo que no es rígido.
+Al usar un sensor es de tipo resistivo de fuerza (FSR), estos son poco lineales y no están pensados para pesar con exactitud.
+
+Para mejorar se plantea:
+Calibrar con varias masas patrón (por ejemplo, 0, 0,5, 1, 2 y 4 kg) y ajustar una recta, en lugar de usar un solo punto, y verificar con una masa distinta a las de calibración. 
+Montar el sensor de forma rígida, con una plataforma que reparta la carga de manera uniforme (o varias celdas), y con una posición del peso reproducible.
+Usar una celda de carga con un amplificador y ADC dedicados (por ejemplo, módulo HX711) en lugar de un sensor de fuerza resistivo, o una báscula certificada como referencia.
+
+## Comparación con incubadoras comerciales
+Una incubadora comercial moderna no solo mide temperatura, humedad y peso: regula de forma automática varias variables y vigila otras. Como ejemplo, la Dräger Babyleo TN500 regula la temperatura del aire y de la piel, la humedad (hasta 99 %, según el fabricante) y, de forma opcional, el oxígeno; ofrece báscula integrada (con versión certificada), monitoreo del ruido dentro de la cabina, sensores de piel central y periférico, alarmas y batería opcional para traslados [16]. 
+Las especificaciones técnicas mínimas que algunos sistemas de salud exigen para una incubadora neonatal incluyen cámara transparente de doble pared, varios accesos de mano, filtro de aire, control de temperatura del aire y de la piel, control de humedad y de oxígeno, báscula integrada y alarmas por falla de temperatura, sensor y energía [17].
+
+Los equipos comerciales también incluyen funciones como cama inclinable, bandeja para rayos X, filtro de aire, modos de destete térmico y, en algunos casos, fototerapia. Estas no se proponen para el laboratorio porque requieren un diseño y una seguridad que van más allá de los alcances de la práctica.
+
+
 
 # Preguntas 
 #### Pregunta 1: ¿Qué otras variables (y por qué) además de las aquí mencionadas son críticas en el monitoreo neonatal?
@@ -241,3 +260,40 @@ Elevar los estándares de seguridad, precisión y estructura.
 5. Sistemas de Seguridad, Alarmas y Batería de Respaldo: Implementar un sistema autónomo de alarmas audibles y visuales ante sobrecalentamiento 38°C, fallas de alimentación o detención del ventilador, acompañado de un sistema de alimentación ininterrumpida (UPS) de grado hospitalario.
 #### Pregunta 3: ¿Qué semejanzas hay entre una incubadora neonatal y una servo-cuna?   
 Tanto la incubadora neonatal como la servo-cuna comparten el objetivo fundamental de proporcionar soporte térmico para prevenir la hipotermia y reducir el estrés metabólico del recién nacido. Ambos sistemas funcionan bajo un principio de servocontrol en lazo cerrado mediante una sonda adherida a la piel del paciente, ajustando automáticamente la entrega de calor. Asimismo, incorporan monitoreo continuo de variables como la temperatura y el peso, y ofrecen un diseño que facilita la supervisión constante por parte del personal médico diferenciándose principalmente en que la incubadora es un entorno cerrado con control de humedad microambiental, mientras que la servo-cuna es una estructura abierta basada en calor radiante para acceso e intervenciones rápidas.
+
+
+### Referencias
+[1] C. G. K. Tran, A. Gibson, D. Wong, D. Tilahun, N. Selock, T. Good, … G. Rao, “Designing a low-cost multifunctional infant incubator,” J. Lab. Autom., vol. 19, no. 3, pp. 332–337, Jun. 2014. https://doi.org/10.1177/2211068214530391
+
+[2] L. Restrepo-Pérez, N. Durango-Londoño, N. E. Gómez-Suárez, F. González-Ramírez, y N. Rivera-Bonilla, “Prototipo de incubadora neonatal,” Revista Ingeniería Biomédica, vol. 1, no. 1, pp. 55–59, 2007. http://www.scielo.org.co/pdf/rinbi/v1n1/v1n1a12.pdf
+
+[3] M. van Leeuwen et al., European Standards of Care for Newborn Health: Temperature management in newborn infants. EFCNI, Nov. 2018. https://newborn-health-standards.org/standards/standards-english/care-procedures/temperature-management-in-newborn-infants/
+
+[4] R. B. Knobel-Dail, “Role of effective thermoregulation in premature neonates,” Research and Reports in Neonatology, vol. 4, pp. 147–156, 2014. https://doi.org/10.2147/RRN.S52377
+
+[5] R. E. Black, S. Cousens, H. L. Johnson et al., “Global, regional, and national causes of child mortality in 2008: a systematic analysis,” Lancet, vol. 375, pp. 1969–1987, Jun. 2010. https://doi.org/10.1016/S0140-6736(10)60549-1
+
+[6] IEC 60601-2-19, Medical electrical equipment — Particular requirements for the basic safety and essential performance of infant incubators. [completar edición/año]
+
+[7] World Health Organization, Thermal protection of the newborn: a practical guide, WHO/RHT/MSM/97.2, 1997. [verificar datos de cita]
+
+[8] L. C. Mullany, “Neonatal hypothermia in low-resource settings,” Semin. Perinatol., 2010. https://pmc.ncbi.nlm.nih.gov/articles/PMC3001630 [verificar volumen y páginas]
+
+[9] V. Bach y J.-P. Libert, “Hyperthermia and heat stress as risk factors for sudden infant death syndrome: a narrative review,” Front. Pediatr., vol. 10, 816136, 2022. https://doi.org/10.3389/fped.2022.816136
+
+[10] “The effect of incubator humidity on morbidity and mortality in preterm infants: a systematic review,” BMC Pediatrics, 2025. https://doi.org/10.1186/s12887-025-05538-3 [completar autores]
+
+[11] “The Extremely Low Birth Weight Infant,” capítulo de libro, IntechOpen. https://intechopen.com/chapters/75846 [completar autores y año]
+
+[12] Artículo sobre ruido dentro de la incubadora neonatal, Front. Pediatr., 2022. https://www.frontiersin.org/journals/pediatrics/articles/10.3389/fped.2022.955553 [completar título y autores]
+
+[13] Worcestershire Acute Hospitals NHS Trust, Environment and noise 2025–28 (guía clínica neonatal). [completar URL y fecha de consulta]
+
+[14] GE Healthcare, documento técnico sobre termorregulación neonatal. https://www.gehealthcare.co.uk/-/jssmedia/2146120c755a48a99ebcb5148db36a1e.pdf [fuente de un fabricante; contrastar con literatura revisada por pares]
+
+[15] Neonatal Care Essentials, recurso educativo abierto (CAUL OER Collective), capítulo de termorregulación y estrés por frío. https://oercollective.caul.edu.au/neonatal-care-essentials/?p=236
+
+[16] Dräger, “Babyleo TN500 IncuWarmer,” página del producto. https://www.draeger.com/en_neeur/Products/Draeger-Babyleo-TN500 [fecha de consulta]
+
+[17] Coordinación Nacional de Equipamiento Sanitario (IESS, Ecuador), Ficha técnica INC-01 Rev-04: Incubadora neonatal fija/móvil, dic. 2024. https://iess.gob.ec/documents/10162/30575072/INC-01+Rev-04+INCUBADORA+NEONATAL.pdf
+
