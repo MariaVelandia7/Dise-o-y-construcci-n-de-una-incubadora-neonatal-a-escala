@@ -35,9 +35,6 @@ Se diseñó y construyó un prototipo a escala de una incubadora neonatal con di
   Preguntas y discusión: Respuestas al cuestionario guía (variables, servo-cuna, etc.)  
   Conclusiones: Síntesis del proyecto y reflexiones técnicas  
 
-## Conclusión general
-FALTA POR HACER 
-
 # Parte A - Diseño y simulación
 # Parte B - Prototipo y Software
 ### Descripción técnica del circuito de la incubadora neonatal a escala
@@ -73,7 +70,6 @@ Cuando se activa la bobina del relé correspondiente, el contacto normalmente ab
 
 Esta configuración permite controlar los actuadores sin utilizar directamente las salidas digitales del Arduino para alimentar sus cargas.
 
-**Consideración de seguridad:** el circuito del bombillo opera con tensión de red, que es peligrosa. La separación eléctrica entre el circuito de control y el de potencia, el aislamiento de las conexiones y la protección contra contactos accidentales son fundamentales. El montaje debe verificarse con el docente antes de volver a energizarlo.
 #### 4. Sistema de medición del peso
 Para estimar la masa de un objeto colocado sobre la plataforma se incorporó una galga o sensor de fuerza. Este elemento responde a la carga aplicada mediante una variación eléctrica que debe ser interpretada por el sistema de adquisición.
 
@@ -85,7 +81,7 @@ Este resultado evidencia la necesidad de mejorar la calibración y la adquisici�
 #### 5. Interfaz de visualización mediante pantalla OLED
 El prototipo incorpora una pantalla OLED para visualizar el valor de peso calculado por el sistema.
 
-La pantalla se comunica con el Arduino Uno mediante las líneas SDA y SCL, correspondientes a los datos y al reloj del protocolo de comunicación, si ese es el protocolo utilizado por el módulo. También dispone de conexiones de alimentación y tierra.
+La pantalla se comunica con el Arduino Uno mediante las líneas SDA y SCL, correspondientes a los datos y al reloj del protocolo de comunicación.
 
 El Arduino procesa la información disponible del sensor de fuerza y actualiza el valor mostrado en la pantalla. De esta forma, la interfaz permite consultar directamente el resultado de la medición.
 #### 6. Funcionamiento integrado del prototipo
@@ -97,3 +93,55 @@ El funcionamiento general del sistema puede describirse mediante la siguiente se
 5. El bombillo incandescente actúa como fuente de calor y el ventilador favorece la circulación del aire.
 6. El sensor de fuerza responde a la carga aplicada sobre la plataforma.
 7. El sistema electrónico procesa la señal disponible y presenta el valor de peso en la pantalla OLED.
+
+## Análisis de Costos y Comparativa Comercial
+
+### Tabla de Costos del Prototipo
+| Componente / Elemento | Descripción / Especificación | Cantidad | Costo (COP) |
+| :--- | :--- | :---: | :---: |
+| **Tarjeta Arduino Uno R3** | Placa microcontroladora principal para adquisición | 1 | $40.000 |
+| **Sensor DHT11** | Módulo sensor de temperatura y humedad relativa | 1 | $12.000 |
+| **Galga de presión** | Celda de carga (1 kg / 5 kg) | 1 | $22.000 |
+| **Pantalla OLED 0.96"** | Display I2C para visualización local de variables | 1 | $20.000 |
+| **Elemento Calefactor (Bombillo + Socate)** | Fuente térmica incandescente para calefacción | 1 | $8.000 |
+| **Módulo Relé (1 Canal / 5V)** | Conmutación del sistema de calefacción | 1 | $8.000 |
+| **Ventilador DC (12V)** | Circulación de aire / convección térmica | 1 | $12.000 |
+| **LEDs y Resistencias de Estado** | Indicadores ópticos (Rojo y Verde) y limitadores | 1 kit | $5.000 |
+| **Estructura Físico-Mecánica** | Cabina a escala (44 cm x 20 cm x 22 cm) en madera | 1 | $65.000 |
+| **Costo Total del Prototipo** | | | **$192.000** |
+
+###  Comparativa con Soluciones Comerciales
+
+* **Costo del Prototipo a Escala:** $192.000 COP ($48 USD).
+* **Costo de Incubadora Comercial:** Rango aproximado entre **$15.000.000 COP y $60.000.000 COP** (~$3.800 - $15.000 USD) frente a marcas como Dräger, LEEX Medical e Instrumentalia S.A.S.
+
+#### Principales Diferencias Técnicas y Funcionales
+
+1. **Grado Médico y Certificación:** Los equipos comerciales incluyen servocontrol multivariable con algoritmos PI/PID, sistemas de redundancia de fallas, baterías de respaldo de grado hospitalario y homologaciones internacionales (ISO 13485 / FDA).
+2. **Aislamiento y Materiales:** Las cabinas clínicas utilizan policarbonato de alta resistencia con aislamiento térmico optimizado y filtros HEPA para mantener entornos estériles.
+3. **Sensores de Alta Calibración:** Los sensores comerciales poseen deriva térmica insignificante y tiempos de respuesta de milisegundos en comparación con módulos educativos como el DHT11.
+
+# Parte C - Análisis y resultados
+
+
+
+
+
+
+# Preguntas 
+#### Pregunta 1: ¿Qué otras variables (y por qué) además de las aquí mencionadas son críticas en el monitoreo neonatal?
+Además de la temperatura, la humedad relativa, el peso y el flujo de aire, las siguientes variables son importantes para la supervivencia y desarrollo del recién nacido:   
+1. Concentración de Oxígeno: Es vital regular la inspiración de oxígeno para prevenir estados de hipoxia tisular o hiperoxia. Niveles descontrolados de oxígeno pueden desencadenar retinopatía de la prematuridad o daño pulmonar agudo.
+2. Frecuencia Cardíaca y Respiratoria: El monitoreo electrocardiográfico o fotopletismográfico permite detectar de inmediato eventos críticos comunes en prematuros, como apneas, bradicardias o arritmias.
+3. Saturación de Oxígeno: Evalúa en tiempo real la perfusión periférica y la efectividad de la ventilación.
+4. Presión Arterial (No Invasiva e Invasiva): Es fundamental para evaluar el estado hemodinámico y prevenir estados de choque o hipotensión neonatal.
+5. Nivel de Ruido e Iluminación: Niveles de ruido superiores a 45 dB o una luz ambiente intensa sobreestimulan el sistema nervioso inmaduro del prematuro, incrementando el consumo metabólico de oxígeno y alterando su neurodesarrollo.
+#### Pregunta 2: ¿Qué haría falta para convertir el sistema desarrollado en una incubadora neonatal real?
+Elevar los estándares de seguridad, precisión y estructura.   
+1. Certificación Térmica y Eléctrica Médica (IEC 60601-2-19): Cumplimiento estricto de normativas internacionales de seguridad electromagnética, corrientes de fuga mínimas a tierra y aislamiento galvánico de alta protección.
+2. Sensores de Grado Médico: Sustituir los módulos comerciales por sensores industriales de alta calibración y baja deriva térmica, implementando dos o más sondas de temperatura de piel y ambiente para evitar fallas por una lectura errónea.
+3. Servocontrol Avanzado (PID): Reemplazar el control conmutado por algoritmos PID servocontrolados que ajusten la potencia del calefactor de forma proporcional y continua, garantizando variaciones térmicas inferiores a 0.1°C sin sobrepasos.
+4. Cabina de Aislamiento Estéril y Filtros HEPA: Construir una estructura de doble pared de acrílico con grado óptico para reducir pérdidas por radiación, e integrar un sistema de circulación con filtros de aire HEPA que prevengan el ingreso de patógenos.
+5. Sistemas de Seguridad, Alarmas y Batería de Respaldo: Implementar un sistema autónomo de alarmas audibles y visuales ante sobrecalentamiento 38°C, fallas de alimentación o detención del ventilador, acompañado de un sistema de alimentación ininterrumpida (UPS) de grado hospitalario.
+#### Pregunta 3: ¿Qué semejanzas hay entre una incubadora neonatal y una servo-cuna?   
+Tanto la incubadora neonatal como la servo-cuna comparten el objetivo fundamental de proporcionar soporte térmico para prevenir la hipotermia y reducir el estrés metabólico del recién nacido. Ambos sistemas funcionan bajo un principio de servocontrol en lazo cerrado mediante una sonda adherida a la piel del paciente, ajustando automáticamente la entrega de calor. Asimismo, incorporan monitoreo continuo de variables como la temperatura y el peso, y ofrecen un diseño que facilita la supervisión constante por parte del personal médico diferenciándose principalmente en que la incubadora es un entorno cerrado con control de humedad microambiental, mientras que la servo-cuna es una estructura abierta basada en calor radiante para acceso e intervenciones rápidas.
