@@ -201,7 +201,7 @@ La prueba con el encendedor demuestra que la lógica de decisión funciona: los 
 Cómo mejorar. Reubicar el sensor a la altura del colchón, protegido de la radiación directa del calefactor y de las paredes; sellar y aislar mejor la cubierta (doble pared); usar un calefactor resistivo de mayor potencia con un driver adecuado (relé de estado sólido o PWM).
 
 ### Humedad
-El mismo sensor registró la humedad relativa: [COMPLETAR: valor inicial] % con el ambiente a 21 °C y [COMPLETAR: valor final] % cuando la temperatura subió a 26 °C. Es esperable que la humedad relativa disminuya al calentar el aire sin añadir vapor de agua, porque el aire más caliente puede contener más vapor y, con la misma cantidad de agua, queda "menos saturado".
+El mismo sensor registró la humedad relativa: 54 % con el ambiente a 21 °C y 47 % cuando la temperatura subió a 26 °C. Es esperable que la humedad relativa disminuya al calentar el aire sin añadir vapor de agua, porque el aire más caliente puede contener más vapor y, con la misma cantidad de agua, queda "menos saturado".
 El prototipo mide la humedad, pero no la controla, porque no cuenta con un humidificador ni con un lazo de control para ella.
 
 <img width="1294" height="590" alt="image" src="https://github.com/user-attachments/assets/31253c7f-0c74-4ba0-82d1-41022ed11e85" />
