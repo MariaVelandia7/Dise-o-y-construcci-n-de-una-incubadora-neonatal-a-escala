@@ -205,11 +205,14 @@ El mismo sensor registró la humedad relativa: [COMPLETAR: valor inicial] % con 
 El prototipo mide la humedad, pero no la controla, porque no cuenta con un humidificador ni con un lazo de control para ella.
 
 <img width="1294" height="590" alt="image" src="https://github.com/user-attachments/assets/31253c7f-0c74-4ba0-82d1-41022ed11e85" />
+
 Figura 1. Monitoreo en tiempo real de la temperatura (arriba) y la humedad relativa (abajo) de la cabina durante el calentamiento con el bombillo, partiendo de la temperatura ambiente (≈ 21 °C). Las líneas punteadas indican los límites del rango objetivo (36,0 °C y 37,5 °C). El eje horizontal corresponde al tiempo.
 
 <img width="601" height="252" alt="image" src="https://github.com/user-attachments/assets/5be2c647-abf8-4aec-bbda-2342233a7a22" />
+
 Figura 2. Monitoreo en tiempo real de la temperatura (arriba) y la humedad relativa (abajo) durante la prueba de respuesta del control. La cabina ya estaba precalentada por el bombillo (≈ 29 °C) y se acercó un encendedor al sensor para elevar la temperatura por encima del límite superior (37,5 °C), con el fin de comprobar la activación de los indicadores y del ventilador. El eje horizontal corresponde al tiempo.
 
+En ambas pruebas, cuando la temperatura sube la humedad relativa baja, y cuando la temperatura baja la humedad tiende a recuperarse. Es decir, las dos variables se mueven en sentido contrario. Esto se debe a que la humedad relativa no mide la cantidad de agua que hay en el aire, sino qué fracción de la cantidad máxima posible está presente a esa temperatura. El aire caliente puede contener mucho más vapor de agua que el aire frío; por eso, si se calienta aire sin añadirle agua, su humedad relativa baja aunque la cantidad de vapor no cambie.
 
 
 ### Peso
